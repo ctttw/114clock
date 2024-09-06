@@ -300,12 +300,74 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Add confetti animation */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f0f0f0;
+            position: absolute;
+            left: 50%;
+            animation: confetti 5s ease-in-out -2s infinite;
+            transform-origin: left top;
+        }
+
+        .confetti:nth-child(1) {
+            background-color: #f2d74e; left: 10%; animation-delay: 0;
+        }
+        .confetti:nth-child(2) {
+            background-color: #95c3de; left: 20%; animation-delay: -5s;
+        }
+        .confetti:nth-child(3) {
+            background-color: #ff9a91; left: 30%; animation-delay: -3s;
+        }
+        .confetti:nth-child(4) {
+            background-color: #f2d74e; left: 40%; animation-delay: -2.5s;
+        }
+        .confetti:nth-child(5) {
+            background-color: #95c3de; left: 50%; animation-delay: -4s;
+        }
+        .confetti:nth-child(6) {
+            background-color: #ff9a91; left: 60%; animation-delay: -6s;
+        }
+        .confetti:nth-child(7) {
+            background-color: #f2d74e; left: 70%; animation-delay: -1.5s;
+        }
+        .confetti:nth-child(8) {
+            background-color: #95c3de; left: 80%; animation-delay: -2s;
+        }
+        .confetti:nth-child(9) {
+            background-color: #ff9a91; left: 90%; animation-delay: -3.5s;
+        }
+        .confetti:nth-child(10) {
+            background-color: #f2d74e; left: 100%; animation-delay: -2.5s;
+        }
+
+        @keyframes confetti {
+            0% { transform: rotateZ(15deg) rotateY(0deg) translate(0,0); }
+            25% { transform: rotateZ(5deg) rotateY(360deg) translate(-5vw,20vh); }
+            50% { transform: rotateZ(15deg) rotateY(720deg) translate(5vw,60vh); }
+            75% { transform: rotateZ(5deg) rotateY(1080deg) translate(-10vw,80vh); }
+            100% { transform: rotateZ(15deg) rotateY(1440deg) translate(10vw,110vh); }
+        }
     </style>
 </head>
 <body>
     <div class="loading">
         <div class="spinner"></div>
     </div>
+
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
 
     <div class="container">
         <h1>114年國中教育會考倒數</h1>
@@ -318,11 +380,11 @@
             <p>距離會考還有一段時間，但時間總是過得很快。善用每一天，為自己的目標努力！加油，你一定行的！</p>
         </div>
         <div class="links">
-            <a href="https://ctttw.github.io/"><i class="fas fa-chart-line"></i>會考落點分析</a>
+            <a href="https://sites.google.com/view/CTTTW/"><i class="fas fa-chart-line"></i>會考落點分析</a>
             <a href="https://tyctw.github.io/StudySync/"><i class="fas fa-clock"></i>高效讀書時鐘</a>
         </div>
         <div class="copyright">
-            &copy; 2024 CTTW會考落點分析平台 . All rights reserved.
+            &copy; 2024 TYCTW會考落點分析平台 . All rights reserved.
         </div>
     </div>
 
@@ -370,5 +432,71 @@
 
         // Initial update
         updateCountdown();
+
+        // Add motivational quotes
+        const quotes = [
+            "成功是一個過程，而不是一個結果。",
+            "每一個偉大的成就都始於一個決心。",
+            "不要為失敗而害怕，要為不去嘗試而後悔。",
+            "學習是一生的旅程，永遠不會太晚。",
+            "你的態度決定了你的高度。",
+            "堅持就是勝利。",
+            "今天的汗水是明天的榮耀。",
+            "相信自己，你比想像中更強大。",
+            "成功不是偶然的，而是日積月累的結果。",
+            "夢想是免費的，實現夢想的過程是無價的。"
+        ];
+
+        function displayRandomQuote() {
+            const quoteElement = document.createElement('p');
+            quoteElement.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+            quoteElement.style.fontStyle = 'italic';
+            quoteElement.style.marginTop = '20px';
+            quoteElement.style.color = '#3498db';
+            document.querySelector('.info').appendChild(quoteElement);
+        }
+
+        displayRandomQuote();
+
+        // Add a study tip section
+        const studyTips = [
+            "制定一個可行的讀書計劃，並嚴格執行。",
+            "使用番茄工作法來提高專注力和效率。",
+            "定期複習已學習的內容，鞏固記憶。",
+            "找到適合自己的學習方法，每個人都是不同的。",
+            "保持充足的睡眠，良好的作息對學習至關重要。",
+            "多與同學討論，教學相長可以加深理解。",
+            "做好筆記，整理重點可以幫助記憶和理解。",
+            "適當的運動可以幫助大腦保持清醒和活躍。",
+            "設立小目標，逐步實現可以增強信心。",
+            "學會放鬆，適度的休息可以提高學習效率。"
+        ];
+
+        function addStudyTipSection() {
+            const tipSection = document.createElement('div');
+            tipSection.className = 'study-tip';
+            tipSection.style.marginTop = '30px';
+            tipSection.style.padding = '20px';
+            tipSection.style.backgroundColor = '#f0f8ff';
+            tipSection.style.borderRadius = '10px';
+            tipSection.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+
+            const tipTitle = document.createElement('h3');
+            tipTitle.textContent = '今日學習小貼士';
+            tipTitle.style.color = '#2980b9';
+            tipTitle.style.marginBottom = '10px';
+
+            const tipContent = document.createElement('p');
+            tipContent.textContent = studyTips[Math.floor(Math.random() * studyTips.length)];
+            tipContent.style.fontSize = '1.1rem';
+            tipContent.style.lineHeight = '1.6';
+
+            tipSection.appendChild(tipTitle);
+            tipSection.appendChild(tipContent);
+
+            document.querySelector('.container').insertBefore(tipSection, document.querySelector('.links'));
+        }
+
+        addStudyTipSection();
     </script>
 </body></html>
